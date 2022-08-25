@@ -264,21 +264,21 @@ copy $(OutDir)leechcorepyc.pyd $(OutDir)\agent\x64\Plugins\leechcorepyc\ /y
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <CompileAs>CompileAsC</CompileAs>
+      <AdditionalIncludeDirectories>C:\Users\colin\AppData\Local\Programs\Python\Python310\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>leechcore.lib</AdditionalDependencies>
       <ProgramDatabaseFile>$(OutDir)\lib\$(TargetName).pdb</ProgramDatabaseFile>
       <ImportLibrary>$(OutDir)\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>C:\Users\colin\AppData\Local\Programs\Python\Python310\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy $(OutDir)test.py W:\bin /y
-copy $(OutDir)leechcore.dll W:\bin /y
-copy $(OutDir)leechcorepyc.pyd W:\bin /y
-copy $(OutDir)leechcorepyc.pyd $(OutDir)\agent\x64\Plugins\leechcorepyc\ /y
+      <Command>if not exist "$(OutDir)agent\x64\Plugins" mkdir "$(OutDir)agent\x64\Plugins"
+copy $(OutDir)leechcorepyc.pyd $(OutDir)agent\x64\Plugins\ /y
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
